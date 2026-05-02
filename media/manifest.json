@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "images": {
+    "hero-2026": {
+      "id": "img_abc123",
+      "url": "https://imagedelivery.net/ACCOUNT_ID/img_abc123/public",
+      "alt": "Hero image: skyline",
+      "uploaded_at": "2026-05-02T18:00:00Z",
+      "source": "cloudflare-images"
+    },
+    "card-sovereignty": {
+      "id": "r2/cards/sovereignty-3f2a1.webp",
+      "url": "https://cdn.example.com/r2/cards/sovereignty-3f2a1.webp",
+      "alt": "Sovereignty card",
+      "uploaded_at": "2026-05-02T18:10:00Z",
+      "source": "r2"
+    }
+  }
+}
