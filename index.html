@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Michael Daniel Bowles (personal-site) — Home</title>
+  <meta name="description" content="A personal site documenting values, reasoning, and practical notes on stewardship, transparency, and access." />
+  <style>
+    :root{
+      /* Core palette */
+      --river-dark: #071826;        /* deep river shadow (used for page margins) */
+      --river-mid:  #0b2436;        /* mid river tone */
+      --panel-warm: #F6A94D;        /* inner panel (warm off-white) */
+      --card-bg:    #8F2E24;        /* card fill (explicit white) */
+      --card-gutter: #fff7ef;       /* gutter color (same as panel-warm to avoid pale bands) */
+      --moss:       #e8f3ea;        /* optional card alternative */
+      --indigo:     #0b3a66;        /* indigo for headings if needed */
+      --redrock:    #C94A2A;        /* original redrock */
+      --redrock-2:  #F6A94D;        /* preferred accent (used for buttons/highlights) */
+      --muted:      #4b5563;        /* muted body text */
+      --text:       #ffffff;        /* primary text on light surfaces */
+      --text-on-dark:#F6F7F9;       /* text on dark panels */
+      --hero-solid:  #0b3a66;       /* solid hero color (dark blue) */
+      --max-width: 980px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* ---------- Page frame and background (dark river) ---------- */
+    html,body{
+      height:100%;
+      margin:0;
+      background: linear-gradient(180deg, var(--river-mid), var(--river-dark));
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* ---------- Outer container (centered) ---------- */
+    .wrap{
+      max-width:var(--max-width);
+      margin:36px auto;
+      padding:0 12px;
+    }
+
+    /* ---------- Inner panel (the warm panel that should be visible) ---------- */
+    .card-surface{
+      background:var(--panel-warm);
+      border-radius:12px;
+      margin:0;
+      padding:28px;
+      box-shadow:0 26px 70px rgba(3,10,18,0.45);
+      border:1px solid rgba(11,35,60,0.04);
+      overflow:visible;
+    }
+
+    /* ---------- HERO: solid dark blue ---------- */
+    .hero{
+      position:relative;
+      min-height:46vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      color:var(--text-on-dark);
+      border-radius:10px;
+      background: var(--card-bg); /* solid hero color */
+      box-shadow:0 10px 30px rgba(3,10,18,0.12);
+    }
+    .hero-inner{position:relative;z-index:2;text-align:center;padding:44px 28px;max-width:920px}
+    .hero h1{margin:0;font-size:clamp(22px,4.6vw,40px);line-height:1.02;font-weight:700;color:var(--text-on-dark)}
+
+/* Hero lead styling (add or replace in your stylesheet) */
+.hero .lead{
+  margin:14px auto 0;
+  font-size:clamp(15px,1.6vw,18px);
+  color:rgba(255,255,255,0.94);
+  max-width:68ch;
+  line-height:1.5;
+  font-weight:500;
+  letter-spacing:-0.01em;
+  text-wrap:balance;
+}
+    /* ---------- CARDS: no extra wrapper, gaps show panel color ---------- */
+    /* The cards container sits on the same panel color so gaps are intentional */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;                 /* gap will show the panel-warm color */
+      margin-top:22px;
+      background:transparent;   /* transparent so parent panel shows through */
+      padding:0;
+    }
+    .card{
+      background:var(--card-bg); /* explicit white card fill */
+	  color:var(--text-on-dark);
+      border-radius:12px;
+      padding:18px;
+      box-shadow:0 10px 30px rgba(3,10,18,0.06);
+      border:1px solid rgba(11,35,60,0.04);
+    }
+    .card .title{color:var(--text-on-dark));font-weight:700;margin:0 0 8px;font-size:16px}
+    .card p{margin:0;color:var(--text-on-dark);font-size:15px;line-height:1.45}
+
+    /* ---------- ABOUT: bio paragraphs on dark panel for emphasis ---------- */
+    .about{display:grid;grid-template-columns:1fr;gap:14px;margin-top:22px}
+    .bio-dark{
+      background:linear-gradient(180deg, rgba(7,24,34,0.98), rgba(11,35,60,0.98));
+      color:var(--text-on-dark);
+      padding:20px;border-radius:10px;
+      box-shadow:0 10px 30px rgba(3,10,18,0.12);
+      font-size:15px;line-height:1.6;
+    }
+    .bio-dark p{margin:0}
+    .aside{
+      padding:12px;border-radius:10px;
+      background:linear-gradient(180deg, rgba(7,24,34,0.98), rgba(11,35,60,0.98));
+      color:var(--text-on-dark);
+      box-shadow:0 8px 24px rgba(3,10,18,0.18);
+    }
+    .aside p{color:rgba(255,255,255,0.9);font-size:13px;margin-top:10px}
+
+    @media(min-width:900px){
+      .about{grid-template-columns:1fr 320px;align-items:start}
+      .bio-dark{padding-right:18px}
+      .aside{padding-left:18px}
+    }
+
+    /* ---------- FOOTER: keep it inside the inner panel ---------- */
+    .card-surface footer{
+      margin-top:28px;
+      font-size:13px;
+      text-align:center;
+      color:var(--muted);
+      padding-bottom:12px;
+    }
+	footer { font-size: 0.85rem; color: #666; }
+	.campaign-attribution { margin: 0 0 0.25rem 0; }
+	.license { margin: 0; }
+
+
+    /* ---------- Utilities ---------- */
+    .portrait-small{width:84px;height:84px;border-radius:50%;object-fit:cover;opacity:0.98;display:block;border:2px solid rgba(255,255,255,0.06);box-shadow:0 6px 18px rgba(11,15,30,0.06)}
+    .btn-primary{background:var(--redrock-2);color:var(--text-on-dark);padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600;display:inline-block}
+    .btn-ghost{background:transparent;border:1px solid rgba(11,35,60,0.08);color:var(--indigo);padding:9px 12px;border-radius:8px}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--redrock-2);color:var(--text-on-dark);font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card-surface">
+      <!-- Hero (solid color) -->
+      <header class="hero" role="banner" aria-label="Site hero">
+<!-- Replace the hero-inner block with this -->
+<div class="hero-inner">
+  <h1>People are the primary source of fact. False representation must not replace them.</h1>
+  <p class="lead">Reject falsehood. Limit third-party sign-offs. Seek procedural simplification and remedies, to protect dignity and enable judgement.</p>
+</div>
+
+      </header>
+
+      <!-- Snapshot cards (no extra wrapper) -->
+      <section class="cards" aria-label="Key commitments">
+        <article class="card" aria-labelledby="c1">
+          <h3 id="c1" class="title">Right of refusal</h3>
+          <p>Right to abstain from unwanted involvement or activity.</p>
+        </article>
+
+        <article class="card" aria-labelledby="c2">
+          <h3 id="c2" class="title">Moral responsibility</h3>
+          <p>Wish to mitigate harm, restore safety, and secure sovereignty.</p>
+        </article>
+
+        <article class="card" aria-labelledby="c3">
+          <h3 id="c3" class="title">Individual sovereignty</h3>
+          <p>Inherent interest in self-preservation. The only truly worthy one, the self.</p>
+        </article>
+      </section>
+
+      <!-- About / Why this site exists (bio on dark panel) -->
+      <section class="about" aria-label="Why this site exists">
+        <div class="bio-dark">
+          <p>This site is a public notebook: a place where I advocate what I value or reason as well as my call-to-action. It is intentionally modest — not a platform for slogans, but a record.</p>
+          <p style="margin-top:12px"></p>
+        </div>
+
+		<aside class="aside" aria-label="About the author">
+		  <img class="avatar" src="/assets/portrait-20260503-84.webp" alt="Portrait of Michael Bowles" width="84" height="84" loading="lazy" />
+  <!-- rest of aside -->
+
+          <p style="margin-top:10px">Michael Daniel Bowles is a longtime Montanan and candidate for Montana House. Raised in Missoula, Michael Daniel worked in the service sector while pursuing studies and independent learning. His experience regarding iniquity, housing pressure or navigating the mental‑health system shaped a desire for transparent governance that protects household decision‑making and expands access to justice.</p>
+        </aside>
+      </section>
+
+<footer>
+  <p class="license">Content licensed under CC BY 4.0. Last updated 2026‑MAY‑04.</p>
+</footer>
+
+    </div>
+  </div>
+</body>
+</html>
